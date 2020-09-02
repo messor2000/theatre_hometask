@@ -47,17 +47,6 @@ public class Main {
         CashBox box = new CashBox();
         Map<Ticket, Listener> list = box.getListTicketsOwner(queue);
 
-        Ticket ticket = new Ticket();
-        for (Map.Entry<Ticket, Listener> entry : list.entrySet()) {
-            switch (entry.getValue().getSex()) {
-                case LADY:
-                    ticket.setPrise(true);
-//                    System.out.println(entry.getValue().getBroochNumbers());
-                case GENTLEMAN:
-//                    System.out.println(entry.getValue().getMustacheLength());
-            }
-        }
-
         System.out.println("List of ticket holders");
         for (Map.Entry<Ticket, Listener> entry : list.entrySet()) {
             System.out.println(entry.getKey() + " - " + entry.getValue());
