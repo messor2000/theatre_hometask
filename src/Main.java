@@ -3,6 +3,7 @@ import theater.Ticket;
 import visitor.Listener;
 import visitor.comparators.BroochComparator;
 import visitor.comparators.MustacheComparator;
+import visitor.comparators.RespectComparator;
 import visitor.comparators.SexComparator;
 
 import java.util.*;
@@ -26,14 +27,22 @@ public class Main {
                 .lady(4));
         listeners.add(new Listener.Builder()
                 .lady(2));
+        listeners.add(new Listener.Builder()
+                .lady(6));
+        listeners.add(new Listener.Builder()
+                .lady(8));
         System.out.println("People in the queue");
         System.out.println(listeners.toString());
 
         System.out.println("--------");
 
+//        Comparator<Listener> comparator = new SexComparator()
+//                .thenComparing(new BroochComparator())
+//                .thenComparing(new MustacheComparator()).reversed();
+
         Comparator<Listener> comparator = new SexComparator()
-                .thenComparing(new BroochComparator())
-                .thenComparing(new MustacheComparator()).reversed();
+                .thenComparing(new RespectComparator()).reversed();
+
         TreeSet<Listener> queue = new TreeSet<>(comparator);
         queue.addAll(listeners);
 

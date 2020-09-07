@@ -2,7 +2,7 @@ package visitor;
 
 import java.util.*;
 
-public class Listener {
+public class Listener implements Respect {
     private Sex sex;
     private int mustacheLength;
     private int broochNumbers;
@@ -17,6 +17,21 @@ public class Listener {
 
     public int getBroochNumbers() {
         return broochNumbers;
+    }
+
+    @Override
+    public int getRespect() {
+        int respect = 0;
+
+        switch (sex) {
+            case GENTLEMAN:
+                respect = getMustacheLength();
+                break;
+            case LADY:
+                respect = getBroochNumbers();
+                break;
+        }
+        return respect;
     }
 
     public static class Builder {
@@ -38,6 +53,16 @@ public class Listener {
             return  listener;
         }
     }
+
+//    public Listener(Sex sex, int mustacheLength) {
+//        this.sex = sex;
+//        this.mustacheLength = mustacheLength;
+//    }
+//
+//    public Listener(Sex sex, int broochNumbers) {
+//        this.sex = sex;
+//        this.broochNumbers = broochNumbers;
+//    }
 
     @Override
     public String toString() {

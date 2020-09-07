@@ -25,12 +25,10 @@ public class CashBox {
     public Set<Listener> getListOfTwoOrMoreTickets(Map<Ticket, Listener> map) {
         Set<Listener> set = new HashSet<>();
 
-        int k = 0;
         HashSet<Listener> set2 = new HashSet<>(map.values());
         for (Listener l : set2) {
             int i = Collections.frequency(map.values(), l);
-            k += i > 1 ? i - 1 : 0;
-            if (k > 1) {
+            if (i > 1) {
                 set.add(l);
             }
         }
