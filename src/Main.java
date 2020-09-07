@@ -1,8 +1,6 @@
 import theater.CashBox;
 import theater.Ticket;
 import visitor.Listener;
-import visitor.comparators.BroochComparator;
-import visitor.comparators.MustacheComparator;
 import visitor.comparators.RespectComparator;
 import visitor.comparators.SexComparator;
 
@@ -35,10 +33,6 @@ public class Main {
         System.out.println(listeners.toString());
 
         System.out.println("--------");
-
-//        Comparator<Listener> comparator = new SexComparator()
-//                .thenComparing(new BroochComparator())
-//                .thenComparing(new MustacheComparator()).reversed();
 
         Comparator<Listener> comparator = new SexComparator()
                 .thenComparing(new RespectComparator()).reversed();

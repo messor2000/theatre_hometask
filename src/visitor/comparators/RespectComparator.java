@@ -4,10 +4,10 @@ import visitor.Listener;
 
 import java.util.Comparator;
 
-public class MustacheComparator implements Comparator<Listener> {
-
+public class RespectComparator implements Comparator<Listener> {
     @Override
     public int compare(Listener o1, Listener o2) {
-        return Integer.compare(o1.getMustacheLength(), o2.getMustacheLength());
+        return Integer.compare(o1.getRespect(), o2.getRespect());
     }
+
 }
