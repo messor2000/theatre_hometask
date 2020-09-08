@@ -22,6 +22,20 @@ public class Listener implements Respect {
     @Override
     public int getRespect() {
         int respect = 0;
+        switch (sex) {
+            case GENTLEMAN:
+                respect = getMustacheLength();
+                break;
+            case LADY:
+                respect = getBroochNumbers();
+                break;
+        }
+        return respect;
+    }
+
+    @Override
+    public int getRespect() {
+        int respect = 0;
 
         switch (sex) {
             case GENTLEMAN:
@@ -54,22 +68,12 @@ public class Listener implements Respect {
         }
     }
 
-//    public Listener(Sex sex, int mustacheLength) {
-//        this.sex = sex;
-//        this.mustacheLength = mustacheLength;
-//    }
-//
-//    public Listener(Sex sex, int broochNumbers) {
-//        this.sex = sex;
-//        this.broochNumbers = broochNumbers;
-//    }
-
     @Override
     public String toString() {
         return "Listener{" +
-                "sex is '" + sex + '\'' +
-                ", mustache length=" + mustacheLength +
-                ", brooch numbers=" + broochNumbers +
+                "sex=" + sex +
+                ", mustacheLength=" + mustacheLength +
+                ", broochNumbers=" + broochNumbers +
                 '}';
     }
 

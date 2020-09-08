@@ -1,4 +1,5 @@
 import theater.CashBox;
+import theater.Competition;
 import theater.Ticket;
 import visitor.Listener;
 import visitor.comparators.RespectComparator;
@@ -19,8 +20,6 @@ public class Main {
                 .gentleman(1));
         listeners.add(new Listener.Builder()
                 .gentleman(0));
-        listeners.add(new Listener.Builder()
-                .gentleman(1));
         listeners.add(new Listener.Builder()
                 .lady(4));
         listeners.add(new Listener.Builder()
@@ -50,11 +49,16 @@ public class Main {
         CashBox box = new CashBox();
         Map<Ticket, Listener> list = box.getListTicketsOwner(queue);
 
+
         System.out.println("List of ticket holders");
         for (Map.Entry<Ticket, Listener> entry : list.entrySet()) {
             System.out.println(entry.getKey() + " - " + entry.getValue());
         }
 
+        System.out.println("--------");
+
+        Competition competition = new Competition();
+        competition.determineTheWinner(list);
 
         System.out.println("--------");
 
