@@ -1,4 +1,5 @@
 import theater.CashBox;
+import theater.Competition;
 import theater.Ticket;
 import visitor.Listener;
 import visitor.comparators.RespectComparator;
@@ -19,8 +20,6 @@ public class Main {
                 .gentleman(1));
         listeners.add(new Listener.Builder()
                 .gentleman(0));
-        listeners.add(new Listener.Builder()
-                .gentleman(1));
         listeners.add(new Listener.Builder()
                 .lady(4));
         listeners.add(new Listener.Builder()
@@ -55,8 +54,10 @@ public class Main {
             System.out.println(entry.getKey() + " - " + entry.getValue());
         }
 
-
         System.out.println("--------");
+
+        Competition competition = new Competition();
+        competition.determineTheWinner(list);
 
         System.out.println("List of ticket holders that have 2 or more tickets \n" +
                 "and take 50% sale for the next buy");

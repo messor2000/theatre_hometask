@@ -32,7 +32,6 @@ public class CashBox {
                 set.add(l);
             }
         }
-
         return set;
     }
 }
