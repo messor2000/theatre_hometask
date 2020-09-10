@@ -6,21 +6,21 @@ import java.util.*;
 
 public class Competition {
     public void determineTheWinner(Map<Ticket, Listener> map) {
-        for (Map.Entry<Ticket, Listener> entry : map.entrySet()) {
-            ArrayList<Listener> list = new ArrayList<>();
-            list.add(entry.getValue());
+        Object personWithMinRespect = map.values().stream()
+                .min(Comparator.comparing(Listener::getRespect))
+                .orElseThrow(NullPointerException::new);
+        System.out.println(personWithMinRespect);
 
-            Ticket minByRespect = list
-                    .stream()
-                    .min(Comparator.comparing(Listener::getRespect))
-                    .orElseThrow(NoSuchElementException::new);
-            for (Listener l: list) {
-                if (l == minByRespect) {
-                    l.setPrise(true);
-                    return;
-                }
+        List<Ticket> winningTickets = new ArrayList<>();
+
+        for (Ticket key : map.keySet()) {
+            if (map.get(key).equals(personWithMinRespect)) {
+                key.setPrise(true);
+                winningTickets.add(key);
             }
         }
+
+        winningTickets.forEach(System.out::println);
     }
 
 

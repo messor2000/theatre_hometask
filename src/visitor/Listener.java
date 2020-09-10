@@ -24,20 +24,6 @@ public class Listener implements Respect {
     @Override
     public int getRespect() {
         int respect = 0;
-        switch (sex) {
-            case GENTLEMAN:
-                respect = getMustacheLength();
-                break;
-            case LADY:
-                respect = getBroochNumbers();
-                break;
-        }
-        return respect;
-    }
-
-    @Override
-    public int getRespect() {
-        int respect = 0;
 
         switch (sex) {
             case GENTLEMAN:

@@ -49,6 +49,7 @@ public class Main {
         CashBox box = new CashBox();
         Map<Ticket, Listener> list = box.getListTicketsOwner(queue);
 
+
         System.out.println("List of ticket holders");
         for (Map.Entry<Ticket, Listener> entry : list.entrySet()) {
             System.out.println(entry.getKey() + " - " + entry.getValue());
@@ -58,6 +59,9 @@ public class Main {
 
         Competition competition = new Competition();
         competition.determineTheWinner(list);
+
+        System.out.println("--------");
+
 
         System.out.println("List of ticket holders that have 2 or more tickets \n" +
                 "and take 50% sale for the next buy");
